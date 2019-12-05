@@ -1,7 +1,7 @@
 """
-PE Problem 3
-jar-jar-binks
-09.16.2017
+PE Problem #003
+Title: Largest prime factor
+Written by Kris Bucyk (github.com/RiceKrisBs)
 """
 
 from math import sqrt, ceil
