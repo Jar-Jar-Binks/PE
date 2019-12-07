@@ -28,5 +28,4 @@ def find_largest_prime_factor(number):
 
 
 if __name__ == '__main__':
-    print(is_prime(14))
-    # print(find_largest_prime_factor(600851475143))
+    print(find_largest_prime_factor(600851475143))
