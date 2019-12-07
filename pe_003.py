@@ -6,25 +6,22 @@ Written by Kris Bucyk (github.com/RiceKrisBs)
 
 import math
 
-
-# TODO: refactor is_prime so that instead of checking all numbers up to n,
-# it only checks up to math.ceil(math.sqrt(n))
-# TODO: refactor is_prime so that instead of checking all numbers up to
-# sqrt(n), it checks nubmers that are of the form 6i+-1 that are <= sqrt(n)
-# TODO: refactor find_largest_prime_factor so that it only checks values that
-# are of the form 6i+-1.
 def is_prime(n):
-    for i in range(2, n):
-        if n % i == 0:
+    if n in [2, 3]:
+        return True
+    for i in range(2, math.ceil((n - 1) / 6)):
+        if n % (6 * i - 1) == 0 or n % (6 * i + 1) == 0:
             return False
     return True
 
 def find_largest_prime_factor(number):
     limit = math.ceil(math.sqrt(number)) + 1
     largest_prime = number
-    for k in range (2, limit):
-        if number % k == 0 and is_prime(k):
-            largest_prime = k
+    for k in range(2, math.ceil((limit - 1) / 6)):
+        if number % (6 * k - 1) == 0 and is_prime(6 * k - 1):
+            largest_prime = 6 * k - 1
+        if number % (6 * k + 1) == 0 and is_prime(6 * k + 1):
+            largest_prime = 6 * k + 1
     return largest_prime
 
 
