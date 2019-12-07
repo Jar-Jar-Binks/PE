@@ -9,6 +9,8 @@ import math
 def is_prime(n):
     if n in [2, 3]:
         return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
     for i in range(2, math.ceil((n - 1) / 6)):
         if n % (6 * i - 1) == 0 or n % (6 * i + 1) == 0:
             return False
@@ -26,4 +28,5 @@ def find_largest_prime_factor(number):
 
 
 if __name__ == '__main__':
-    print(find_largest_prime_factor(600851475143))
+    print(is_prime(14))
+    # print(find_largest_prime_factor(600851475143))
